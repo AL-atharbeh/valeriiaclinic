@@ -1,0 +1,131 @@
+@import "tailwindcss";
+
+@theme {
+  /* اللوحة — صفاء طبي بلمسة دفء. لا وردي، لا ذهبي لامع، لا زخارف. */
+  --color-ink: #1c1f26;        /* نص أساسي — رمادي فحمي، ليس أسود */
+  --color-porcelain: #fbfaf8;  /* الخلفية الأساسية، أبيض دافئ */
+  --color-linen: #f3efea;      /* خلفية الأقسام البديلة */
+  --color-sage: #7c8b7e;       /* أخضر رمادي هادئ — لون العلامة */
+  --color-deep: #2f3a34;       /* أخضر داكن جداً — الأقسام الغامقة */
+  --color-warm: #c89b6e;       /* كهرماني دافئ — لون الإجراء الوحيد */
+
+  /* نسختان مُغمّقتان من sage/muted تمرّان تباين AA للنص الصغير.
+     ‎--sage‎ الأصلي يعطي ٣.٥:١ فوق ‎--porcelain‎ — يصلح للحدود والنص الكبير فقط. */
+  --color-muted: #5f6670;      /* نص ثانوي — ٥.٦:١ فوق porcelain · ٥.١:١ فوق linen */
+  --color-sage-ink: #5a6b5d;   /* نص بلون العلامة — ٥.٤:١ فوق porcelain */
+
+  --font-heading: var(--font-heading-ar), var(--font-heading-en), Georgia, serif;
+  --font-body: var(--font-body-ar), var(--font-body-en), system-ui, sans-serif;
+
+  --radius-card: 0.75rem;
+
+  --ease-lift: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* الإنجليزية تقدّم الخطوط اللاتينية على العربية */
+html[lang="en"] {
+  --font-heading: var(--font-heading-en), Georgia, serif;
+  --font-body: var(--font-body-en), system-ui, sans-serif;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-porcelain);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  /* لا تمرير أفقي عند ٣٧٥ بكسل مهما حدث */
+  overflow-x: hidden;
+}
+
+/* fieldset يأخذ min-inline-size: min-content افتراضياً فيفرض عرض محتواه
+   ويولّد تمريراً أفقياً — خصوصاً حول شريط أيام الحجز */
+fieldset {
+  min-inline-size: 0;
+}
+
+h1, h2, h3, .font-heading {
+  font-family: var(--font-heading);
+  line-height: 1.15;
+}
+
+/* Cormorant نحيف بطبعه — التباعد الموجب مقصود ويزيد وضوحه.
+   العربية المتصلة تتضرر من أي عبث بالتباعد، فتُترك وحدها. */
+html[lang="en"] h2,
+html[lang="en"] h3,
+html[lang="en"] .font-heading {
+  letter-spacing: 0.02em;
+}
+
+html[lang="en"] .t-display {
+  letter-spacing: -0.015em;
+}
+
+/* سلّم الحجم بالكامل عبر clamp */
+.t-display {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  line-height: 1.15;
+}
+.t-h2 {
+  font-size: clamp(1.75rem, 3.4vw, 2.75rem);
+}
+.t-h3 {
+  font-size: clamp(1.1rem, 1.6vw, 1.3rem);
+}
+.t-lead {
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  line-height: 1.8;
+}
+.t-body {
+  font-size: clamp(0.94rem, 1.05vw, 1.02rem);
+  line-height: 1.85;
+}
+.t-eyebrow {
+  font-size: clamp(0.7rem, 0.85vw, 0.78rem);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* الأرقام العربية الهندية تبدو أفضل بترقيم جدولي في العدّادات */
+.tnum {
+  font-variant-numeric: tabular-nums;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-sage);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+/* الانتقال بين اللغتين — تلاشٍ ٢٠٠ms يمنع القفزة عند انقلاب الاتجاه */
+@keyframes lang-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.lang-fade {
+  animation: lang-fade 200ms ease-out both;
+}
+
+::selection {
+  background: var(--color-linen);
+  color: var(--color-ink);
+}
+
+/* إيقاف كامل للحركة عند طلب المستخدم */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
