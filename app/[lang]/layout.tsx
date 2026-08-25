@@ -6,7 +6,7 @@ import {
   Cormorant_Garamond,
   Inter,
 } from "next/font/google";
-import { CLINIC } from "@/lib/clinic";
+import { CLINIC, SITE_URL } from "@/lib/clinic";
 import { CONTENT, LANGS, isLang, type Lang } from "@/lib/content";
 import "../globals.css";
 
@@ -58,7 +58,7 @@ export async function generateMetadata({
   const c = CONTENT[lang].meta;
 
   return {
-    metadataBase: new URL(CLINIC.siteUrl),
+    metadataBase: new URL(SITE_URL),
     title: c.title,
     description: c.description,
     keywords:
@@ -114,7 +114,7 @@ const jsonLd = {
   "@type": "MedicalClinic",
   name: CLINIC.nameAr,
   alternateName: CLINIC.nameEn,
-  url: CLINIC.siteUrl,
+  url: SITE_URL,
   medicalSpecialty: "Dermatology",
   telephone: CLINIC.phone,
   sameAs: [CLINIC.instagram, CLINIC.doctorInstagram],

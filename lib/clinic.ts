@@ -22,9 +22,21 @@ export const CLINIC = {
   lng: 48.0138703,
   addressAr: "برج مزايا الجديد، الدور ١٨، الجابرية، الكويت",
   addressEn: "New Mazaya Tower, Floor 18, Jabriya, Kuwait",
-  /** استبدله بالنطاق الحقيقي عند النشر */
-  siteUrl: "https://dr-valeriia-clinic.example.com",
 } as const;
+
+/**
+ * عنوان الموقع المنشور — تقرأه sitemap و robots و metadataBase و JSON-LD.
+ *
+ * على Vercel يُملأ من دومين الإنتاج تلقائياً، فيبقى ثابتاً عبر نشرات المعاينة.
+ * وعند ربط دومين حقيقي للعيادة اضبط ‎NEXT_PUBLIC_SITE_URL‎ في إعدادات المشروع.
+ *
+ * خادمي فقط — لا تستورده في مكوّن ‎"use client"‎.
+ */
+export const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : "http://localhost:3000");
 
 export const MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${CLINIC.lat},${CLINIC.lng}`;
 

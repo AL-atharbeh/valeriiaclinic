@@ -1,10 +1,10 @@
 import type { MetadataRoute } from "next";
-import { CLINIC } from "@/lib/clinic";
+import { SITE_URL } from "@/lib/clinic";
 
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: { userAgent: "*", allow: "/" },
-    sitemap: `${CLINIC.siteUrl}/sitemap.xml`,
-    host: CLINIC.siteUrl,
+    sitemap: `${SITE_URL}/sitemap.xml`,
+    host: SITE_URL,
   };
 }
