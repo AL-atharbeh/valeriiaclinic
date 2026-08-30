@@ -111,18 +111,18 @@ export default function Hero({ lang }: { lang: Lang }) {
               </motion.p>
 
               <motion.div
-                className="mt-9 flex flex-wrap items-center gap-3"
+                className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center"
                 {...rise(0.95, reduce)}
               >
                 <Link
                   href="#booking"
-                  className="inline-flex items-center justify-center rounded-full bg-warm px-8 py-4 text-base font-semibold text-ink transition-transform duration-200 hover:-translate-y-0.5"
+                  className="inline-flex w-full items-center justify-center rounded-full bg-warm px-8 py-4 text-base font-semibold text-ink transition-transform duration-200 hover:-translate-y-0.5 sm:w-auto"
                 >
                   {c.primaryCta}
                 </Link>
                 <Link
                   href="#services"
-                  className="inline-flex items-center justify-center rounded-full px-8 py-4 text-base font-semibold text-ink ring-1 ring-ink/15 transition-colors duration-200 hover:bg-linen"
+                  className="inline-flex w-full items-center justify-center rounded-full px-8 py-4 text-base font-semibold text-ink ring-1 ring-ink/15 transition-colors duration-200 hover:bg-linen sm:w-auto"
                 >
                   {c.secondaryCta}
                 </Link>

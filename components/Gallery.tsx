@@ -17,7 +17,7 @@ export default function Gallery({ lang }: { lang: Lang }) {
   }));
 
   return (
-    <section id="gallery" className="scroll-mt-20 bg-linen py-20 sm:py-28">
+    <section id="gallery" className="scroll-mt-20 bg-linen py-12 sm:py-28">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <SectionHeading eyebrow={c.eyebrow} title={c.title} intro={c.intro} />
         <GalleryGrid entries={entries} lang={lang} />

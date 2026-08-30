@@ -33,12 +33,20 @@ html {
   scroll-behavior: smooth;
 }
 
+/* حاوية التمرير على الجوال هي ‎html‎ لا ‎body‎، فوضع القاعدة على ‎body‎
+   وحده لا يمنع شيئاً — لذلك توضع على الاثنين معاً.
+
+   ‎clip‎ لا ‎hidden‎: ‎hidden‎ يصنع حاوية تمرير تنزلق برمجياً أو عند نقل
+   التركيز إلى عنصر خارج الإطار، ويفرض ‎auto‎ على المحور الرأسي. */
+html,
+body {
+  overflow-x: clip;
+}
+
 body {
   background: var(--color-porcelain);
   color: var(--color-ink);
   font-family: var(--font-body);
-  /* لا تمرير أفقي عند ٣٧٥ بكسل مهما حدث */
-  overflow-x: hidden;
 }
 
 /* fieldset يأخذ min-inline-size: min-content افتراضياً فيفرض عرض محتواه

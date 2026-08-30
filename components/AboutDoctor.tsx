@@ -9,9 +9,9 @@ export default function AboutDoctor({ lang }: { lang: Lang }) {
   const c = CONTENT[lang].doctor;
 
   return (
-    <section className="bg-linen py-20 sm:py-28">
+    <section className="bg-linen py-12 sm:py-28">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
-        <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,22rem)_minmax(0,1fr)] lg:gap-16">
+        <div className="grid items-center gap-8 sm:gap-12 lg:grid-cols-[minmax(0,22rem)_minmax(0,1fr)] lg:gap-16">
           <Reveal>
             <AssetImage
               file="doctor.jpg"
@@ -60,7 +60,7 @@ export default function AboutDoctor({ lang }: { lang: Lang }) {
               href={CLINIC.doctorInstagram}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-8 inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold text-ink ring-1 ring-ink/15 transition-colors duration-200 hover:bg-porcelain"
+              className="mt-8 inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold text-ink ring-1 ring-ink/15 transition-colors duration-200 hover:bg-porcelain max-sm:min-h-11"
             >
               <InstagramIcon className="h-4 w-4" />
               <span>{c.instagramCta}</span>

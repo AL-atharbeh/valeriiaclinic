@@ -12,7 +12,7 @@ export default function Footer({ lang }: { lang: Lang }) {
 
   return (
     <footer className="bg-deep text-linen">
-      <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
+      <div className="mx-auto max-w-6xl px-5 py-10 sm:px-8 sm:py-20">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div className="sm:col-span-2 lg:col-span-1">
             <Image
@@ -40,7 +40,7 @@ export default function Footer({ lang }: { lang: Lang }) {
                 <a
                   href={`tel:${CLINIC.phone}`}
                   dir="ltr"
-                  className="tnum inline-flex items-center gap-2 text-linen/85 transition-colors hover:text-porcelain"
+                  className="tnum inline-flex items-center gap-2 text-linen/85 transition-colors hover:text-porcelain max-sm:min-h-11"
                 >
                   <Phone className="h-4 w-4 shrink-0" strokeWidth={1.5} aria-hidden="true" />
                   {digits(CLINIC.phoneDisplay, lang)}
@@ -51,7 +51,7 @@ export default function Footer({ lang }: { lang: Lang }) {
                   href={`https://wa.me/${CLINIC.whatsapp}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-linen/85 transition-colors hover:text-porcelain"
+                  className="inline-flex items-center gap-2 text-linen/85 transition-colors hover:text-porcelain max-sm:min-h-11"
                 >
                   <WhatsAppIcon className="h-4 w-4" />
                   {c.whatsappLabel}
@@ -69,7 +69,7 @@ export default function Footer({ lang }: { lang: Lang }) {
                   target="_blank"
                   rel="noopener noreferrer"
                   dir="ltr"
-                  className="inline-flex items-center gap-2 text-linen/85 transition-colors hover:text-porcelain"
+                  className="inline-flex items-center gap-2 text-linen/85 transition-colors hover:text-porcelain max-sm:min-h-11"
                 >
                   <InstagramIcon className="h-4 w-4" />
                   {CLINIC.instagramHandle}
@@ -81,7 +81,7 @@ export default function Footer({ lang }: { lang: Lang }) {
                   target="_blank"
                   rel="noopener noreferrer"
                   dir="ltr"
-                  className="inline-flex items-center gap-2 text-linen/85 transition-colors hover:text-porcelain"
+                  className="inline-flex items-center gap-2 text-linen/85 transition-colors hover:text-porcelain max-sm:min-h-11"
                 >
                   <InstagramIcon className="h-4 w-4" />
                   {CLINIC.doctorInstagramHandle}
@@ -105,7 +105,7 @@ export default function Footer({ lang }: { lang: Lang }) {
           </div>
         </div>
 
-        <div className="mt-14 border-t border-linen/15 pt-7">
+        <div className="mt-9 border-t sm:mt-14 border-linen/15 pt-7">
           <p className="text-xs text-linen/70">
             © {digits(new Date().getFullYear(), lang)} {name} — {c.rights}
             {" · "}

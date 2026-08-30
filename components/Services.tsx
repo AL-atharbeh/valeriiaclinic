@@ -30,11 +30,11 @@ export default function Services({ lang }: { lang: Lang }) {
   const Arrow = lang === "ar" ? ArrowLeft : ArrowRight;
 
   return (
-    <section id="services" className="scroll-mt-16 bg-porcelain py-20 sm:py-28">
+    <section id="services" className="scroll-mt-16 bg-porcelain py-12 sm:py-28">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <SectionHeading eyebrow={c.eyebrow} title={c.title} intro={c.intro} />
 
-        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-9 grid gap-4 sm:mt-14 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
           {SERVICE_IDS.map((id, i) => {
             const Icon = ICONS[id];
             const item = c.items[id];
@@ -42,7 +42,7 @@ export default function Services({ lang }: { lang: Lang }) {
             return (
               /* تتابع ٩٠ms بين البطاقات */
               <Reveal key={id} delay={i * 0.09}>
-                <article className="group h-full rounded-card border border-ink/10 bg-porcelain p-7 transition-[transform,border-color] duration-300 hover:-translate-y-1 hover:border-sage">
+                <article className="group h-full rounded-card border border-ink/10 bg-porcelain p-5 transition-[transform,border-color] duration-300 hover:-translate-y-1 hover:border-sage sm:p-7">
                   <Icon
                     className="h-6 w-6 text-sage-ink"
                     strokeWidth={1.5}
@@ -56,7 +56,7 @@ export default function Services({ lang }: { lang: Lang }) {
                   <button
                     type="button"
                     onClick={() => requestBooking(id)}
-                    className="mt-6 inline-flex items-center gap-1.5 rounded-full text-sm font-semibold text-sage-ink transition-colors duration-200 hover:text-ink"
+                    className="mt-4 inline-flex items-center gap-1.5 rounded-full text-sm font-semibold text-sage-ink transition-colors duration-200 hover:text-ink max-sm:min-h-11 sm:mt-6"
                   >
                     {c.bookThis}
                     <Arrow

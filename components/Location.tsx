@@ -20,7 +20,7 @@ export default function Location({ lang }: { lang: Lang }) {
   const address = lang === "ar" ? CLINIC.addressAr : CLINIC.addressEn;
 
   return (
-    <section id="location" className="scroll-mt-16 bg-porcelain py-20 sm:py-28">
+    <section id="location" className="scroll-mt-16 bg-porcelain py-12 sm:py-28">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <SectionHeading eyebrow={c.eyebrow} title={c.title} />
 
@@ -98,19 +98,19 @@ export default function Location({ lang }: { lang: Lang }) {
               </p>
             </div>
 
-            <div className="mt-7 flex flex-wrap gap-3">
+            <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <a
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3 text-sm font-semibold text-porcelain transition-transform duration-200 hover:-translate-y-0.5"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-ink px-6 py-3 text-sm font-semibold text-porcelain transition-transform duration-200 hover:-translate-y-0.5 max-sm:min-h-11 sm:w-auto sm:justify-start"
               >
                 {c.mapsCta}
                 <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
               </a>
               <a
                 href={`tel:${CLINIC.phone}`}
-                className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-ink ring-1 ring-ink/15 transition-colors duration-200 hover:bg-linen"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-ink ring-1 ring-ink/15 transition-colors duration-200 hover:bg-linen max-sm:min-h-11 sm:w-auto sm:justify-start"
               >
                 <Phone className="h-4 w-4" strokeWidth={1.5} aria-hidden="true" />
                 {c.callCta}
@@ -122,7 +122,7 @@ export default function Location({ lang }: { lang: Lang }) {
           </Reveal>
 
           <Reveal delay={0.18}>
-            <div className="h-80 overflow-hidden rounded-card ring-1 ring-ink/10 lg:h-full lg:min-h-[26rem]">
+            <div className="h-64 overflow-hidden rounded-card ring-1 ring-ink/10 sm:h-80 lg:h-full lg:min-h-[26rem]">
               <iframe
                 src={MAPS_EMBED_URL}
                 title={c.mapTitle}

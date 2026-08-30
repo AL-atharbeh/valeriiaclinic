@@ -26,7 +26,7 @@ export default function LangToggle({
       href={href}
       hrefLang={other}
       aria-label={CONTENT[lang].nav.toggleLabel}
-      className={`inline-flex shrink-0 items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold ring-1 transition-colors duration-200 ${shell}`}
+      className={`inline-flex shrink-0 items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold ring-1 transition-colors duration-200 max-sm:min-h-11 ${shell}`}
     >
       <Languages className="h-4 w-4" aria-hidden="true" />
       <span>{CONTENT[lang].nav.otherLangName}</span>

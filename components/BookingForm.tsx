@@ -130,7 +130,7 @@ ${m.notes}: ${notes.trim() || m.none}`;
     <section
       ref={sectionRef}
       id="booking"
-      className="scroll-mt-16 bg-linen py-20 sm:py-28"
+      className="scroll-mt-16 bg-linen py-12 sm:py-28"
     >
       <div className="mx-auto max-w-3xl px-5 sm:px-8">
         <SectionHeading eyebrow={c.eyebrow} title={c.title} intro={c.intro} />
@@ -205,14 +205,14 @@ ${m.notes}: ${notes.trim() || m.none}`;
                 aria-label={c.day}
                 aria-invalid={Boolean(errors.day)}
                 aria-describedby={errors.day ? "day-error" : undefined}
-                className="mt-3 flex min-w-0 snap-x gap-2 overflow-x-auto pb-2"
+                className="mt-3 grid grid-cols-5 gap-1.5 sm:flex sm:min-w-0 sm:snap-x sm:gap-2 sm:overflow-x-auto sm:pb-2"
               >
                 {days.length === 0
                   ? Array.from({ length: 7 }).map((_, i) => (
                       <div
                         key={i}
                         aria-hidden="true"
-                        className="h-[4.6rem] w-16 shrink-0 rounded-xl bg-linen"
+                        className="h-[4.6rem] w-full rounded-xl bg-linen sm:w-16 sm:shrink-0"
                       />
                     ))
                   : days.map((d) => {
@@ -220,7 +220,7 @@ ${m.notes}: ${notes.trim() || m.none}`;
                       return (
                         <label
                           key={d.iso}
-                          className={`flex h-[4.6rem] w-16 shrink-0 snap-start cursor-pointer flex-col items-center justify-center rounded-xl border text-center transition-colors ${
+                          className={`flex h-[4.6rem] w-full cursor-pointer flex-col items-center justify-center rounded-xl border text-center transition-colors sm:w-16 sm:shrink-0 sm:snap-start ${
                             d.closed
                               ? "cursor-not-allowed border-ink/8 bg-linen/70 text-muted/45"
                               : checked

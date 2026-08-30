@@ -101,7 +101,7 @@ export default function GalleryGrid({
 
   return (
     <>
-      <ul className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <ul className="mt-9 grid grid-cols-2 gap-3 sm:mt-14 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3">
         {entries.map((entry, i) => {
           const label = c.imageAlt(digits(i + 1, lang));
           const span =
